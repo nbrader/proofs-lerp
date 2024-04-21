@@ -1,0 +1,42 @@
+lerp_LAW_IMPLEMENTATION lerp_LAW_IMPLEMENTATION: lerp x0 x1 t == (1 - t)*x0 + t*x1
+lerp_LAW_ZERO lerp_LAW_ZERO: lerp x0 x1 0 == x0
+lerp_LAW_UNIT lerp_LAW_UNIT: lerp x0 x1 1 == x1
+lerpHomog0_LAW_DEF_1 lerpHomog0_LAW_DEF_1: lerpHomog0 x0 x1 t == lerp x0 x1 t - lerp x0 x1 0
+lerpHomog0_LAW_DEF_2 lerpHomog0_LAW_DEF_2: lerpHomog0 x0 x1 t == lerp x0 x1 t - x0
+lerpHomog0_LAW_ZERO lerpHomog0_LAW_ZERO: lerpHomog0 x0 x1 0 == 0
+lerpHomog0_LAW_LINEAR lerpHomog0_LAW_LINEAR: lerpHomog0 x0 x1 (a*t0 + b*t1) == a*lerpHomog0 x0 x1 t0 + b*lerpHomog0 x0 x1 t1
+lerpHomog0_LAW_AFFINE lerpHomog0_LAW_AFFINE: (lerpHomog0 (a*y0+b) (a*y1+b)) x == a*((lerpHomog0 y0 y1) x)
+lerpHomog0_LAW_DEF_5 lerpHomog0_LAW_DEF_5: lerpHomog0 x0 x1 1 == x1 - x0
+lerpHomog0_LAW_DEF_6 lerpHomog0_LAW_DEF_6: lerpHomog0 x0 x1 c == c*lerpHomog0 x0 x1 1
+lerpHomog0_LAW_IMPLEMENTATION lerpHomog0_LAW_IMPLEMENTATION: lerpHomog0 x0 x1 c == c*(x1 - x0)
+lerpHomog0_LAW_DEF_2_AND_lerpHomog0_LAW_IMPLEMENTATION lerpHomog0_LAW_DEF_2_AND_lerpHomog0_LAW_IMPLEMENTATION
+lerp_LAW_IMPLEMENTATION_AND_lerpHomog0_LAW_IMPLEMENTATION lerp_LAW_IMPLEMENTATION_AND_lerpHomog0_LAW_IMPLEMENTATION
+lerp_LAW_ZERO_AND_lerpHomog0_LAW_DEF_1 lerp_LAW_ZERO_AND_lerpHomog0_LAW_DEF_1
+lerp_LAW_ZERO_AND_lerpHomog0_LAW_DEF_2 lerp_LAW_ZERO_AND_lerpHomog0_LAW_DEF_2
+lerp_LAW_UNIT_AND_lerpHomog0_LAW_DEF_2 lerp_LAW_UNIT_AND_lerpHomog0_LAW_DEF_2
+lerpHomog0_LAW_DEF_5_AND_lerpHomog0_LAW_DEF_6 lerpHomog0_LAW_DEF_5_AND_lerpHomog0_LAW_DEF_6
+#
+lerpHomog0_LAW_DEF_2_AND_lerpHomog0_LAW_IMPLEMENTATION lerpHomog0_LAW_DEF_2
+lerpHomog0_LAW_DEF_2_AND_lerpHomog0_LAW_IMPLEMENTATION lerpHomog0_LAW_IMPLEMENTATION
+lerpHomog0_LAW_DEF_2_AND_lerpHomog0_LAW_IMPLEMENTATION lerp_LAW_IMPLEMENTATION
+lerp_LAW_IMPLEMENTATION lerp_LAW_ZERO
+lerp_LAW_IMPLEMENTATION lerp_LAW_UNIT
+lerp_LAW_IMPLEMENTATION_AND_lerpHomog0_LAW_IMPLEMENTATION lerpHomog0_LAW_DEF_1
+lerp_LAW_IMPLEMENTATION_AND_lerpHomog0_LAW_IMPLEMENTATION lerp_LAW_IMPLEMENTATION
+lerp_LAW_IMPLEMENTATION_AND_lerpHomog0_LAW_IMPLEMENTATION lerpHomog0_LAW_IMPLEMENTATION
+lerp_LAW_ZERO_AND_lerpHomog0_LAW_DEF_1 lerpHomog0_LAW_DEF_2
+lerp_LAW_ZERO_AND_lerpHomog0_LAW_DEF_1 lerp_LAW_ZERO
+lerp_LAW_ZERO_AND_lerpHomog0_LAW_DEF_1 lerpHomog0_LAW_DEF_1
+lerp_LAW_ZERO_AND_lerpHomog0_LAW_DEF_2 lerpHomog0_LAW_ZERO
+lerp_LAW_ZERO_AND_lerpHomog0_LAW_DEF_2 lerp_LAW_ZERO
+lerp_LAW_ZERO_AND_lerpHomog0_LAW_DEF_2 lerpHomog0_LAW_DEF_2
+lerpHomog0_LAW_IMPLEMENTATION lerpHomog0_LAW_LINEAR
+lerpHomog0_LAW_IMPLEMENTATION lerpHomog0_LAW_AFFINE
+lerp_LAW_UNIT_AND_lerpHomog0_LAW_DEF_2 lerpHomog0_LAW_DEF_5
+lerp_LAW_UNIT_AND_lerpHomog0_LAW_DEF_2 lerp_LAW_UNIT
+lerp_LAW_UNIT_AND_lerpHomog0_LAW_DEF_2 lerpHomog0_LAW_DEF_2
+lerpHomog0_LAW_LINEAR lerpHomog0_LAW_DEF_6
+lerpHomog0_LAW_DEF_5_AND_lerpHomog0_LAW_DEF_6 lerpHomog0_LAW_IMPLEMENTATION
+lerpHomog0_LAW_DEF_5_AND_lerpHomog0_LAW_DEF_6 lerpHomog0_LAW_DEF_5
+lerpHomog0_LAW_DEF_5_AND_lerpHomog0_LAW_DEF_6 lerpHomog0_LAW_DEF_6
+lerpHomog0_LAW_IMPLEMENTATION lerpHomog0_LAW_ZERO
