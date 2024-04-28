@@ -33,7 +33,7 @@ Proof.
 Qed.
 
 
-Theorem lerpHomog0_LAW_ZERO :
+Theorem lerpHomog0_LAW_ZERO_AXIOMS1 :
   (* Assumptions *)
   ( forall lerp : R -> R -> R -> R,
     forall x0 x1 : R,
@@ -59,6 +59,37 @@ Proof.
   intros x0 x1.
 
   rewrite (H_lerpHomog0_def lerp).
+  rewrite (H_lerp_zero lerp).
+  ring.
+Qed.
+
+
+Theorem lerpHomog0_LAW_ZERO_AXIOMS2 :
+  (* Assumptions *)
+  ( forall lerp lerpHomog0 : R -> R -> R -> R,
+    forall x0 x1 t : R,
+      lerpHomog0 x0 x1 t = lerp x0 x1 t - x0
+  ) ->
+  ( forall lerp : R -> R -> R -> R,
+    forall x0 x1 : R,
+      lerp x0 x1 0 = x0
+  ) ->
+
+  (* Arguments *)
+  forall (lerp lerpHomog0 : R -> R -> R -> R),
+  forall x0 x1 : R,
+
+  (* Conjecture *)
+    lerpHomog0 x0 x1 0 = 0.
+Proof.
+  intro H_lerpHomog0_def_2.
+  intro H_lerp_zero.
+
+  intro lerp.
+  intro lerpHomog0.
+  intros x0 x1.
+
+  rewrite (H_lerpHomog0_def_2 lerp).
   rewrite (H_lerp_zero lerp).
   ring.
 Qed.
@@ -95,7 +126,7 @@ Proof.
 Qed.
 
 
-Theorem lerpHomog0_LAW_DEF_6 :
+Theorem lerpHomog0_LAW_DEF_6_AXIOMS1 :
   (* Assumptions *)
   ( forall lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 a t0 b t1 : R,
@@ -129,31 +160,53 @@ Proof.
 Qed.
 
 
-Theorem lerpHomog0_LAW_IMPLEMENTATION :
-  (* Declarations *)
-  forall (lerpHomog0 : R -> R -> R -> R),
-
+Theorem lerpHomog0_LAW_DEF_6_AXIOMS2 :
   (* Assumptions *)
-  (* H_lerpHomog0_def_6 *) (forall x0 x1 c : R, lerpHomog0 x0 x1 c = c * lerpHomog0 x0 x1 1) ->
-  (* H_lerpHomog0_def_5 *) (forall x0 x1 : R, lerpHomog0 x0 x1 1 = x1 - x0) ->
+  ( forall lerpHomog0 : R -> R -> R -> R,
+    forall x0 x1 c : R,
+      lerpHomog0 x0 x1 c = c*(x1 - x0)
+  ) ->
 
   (* Arguments *)
+  forall (lerpHomog0 : R -> R -> R -> R),
+  forall x0 x1 c : R,
+
+  (* Conjecture *)
+    lerpHomog0 x0 x1 c = c * lerpHomog0 x0 x1 1.
+Proof.
+  intro H_lerpHomog0_impl.
+
+  intro lerpHomog0.
+  intros x0 x1 c.
+
+  rewrite (H_lerpHomog0_impl lerpHomog0).
+  rewrite (H_lerpHomog0_impl lerpHomog0).
+  ring.
+Qed.
+
+
+Theorem lerpHomog0_LAW_impl :
+  (* Assumptions *)
+  ( forall lerpHomog0 : R -> R -> R -> R,
+    forall x0 x1 c : R, lerpHomog0 x0 x1 c = c * lerpHomog0 x0 x1 1
+  ) ->
+  ( forall lerpHomog0 : R -> R -> R -> R,
+    forall x0 x1 : R, lerpHomog0 x0 x1 1 = x1 - x0
+  ) ->
+
+  (* Arguments *)
+  forall (lerpHomog0 : R -> R -> R -> R),
   forall x0 x1 c : R,
 
   (* Conjecture *)
     lerpHomog0 x0 x1 c = c*(x1 - x0).
 Proof.
-  (* Declarations *)
-  intro lerpHomog0.
-
-  (* Assumptions *)
   intro H_lerpHomog0_def_6.
   intro H_lerpHomog0_def_5.
 
-  (* Arguments *)
+  intro lerpHomog0.
   intros x0 x1 c.
 
-  (* Proof *)
   rewrite H_lerpHomog0_def_6.
   rewrite H_lerpHomog0_def_5.
   reflexivity.
@@ -185,7 +238,7 @@ Proof.
 Qed.
 
 
-Theorem lerp_LAW_IMPLEMENTATION :
+Theorem lerp_LAW_impl_AXIOMS1:
   (* Assumptions *)
   ( forall lerp lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 t : R,
@@ -216,4 +269,146 @@ Proof.
   - rewrite H.
     rewrite (H_lerpHomog0_impl lerpHomog0).
     ring.
+Qed.
+
+
+Theorem lerp_LAW_impl_AXIOMS2:
+  (* Assumptions *)
+  ( forall lerp lerpHomog0 : R -> R -> R -> R,
+    forall x0 x1 t : R,
+    lerpHomog0 x0 x1 t = lerp x0 x1 t - x0
+  ) ->
+  ( forall lerpHomog0 : R -> R -> R -> R,
+    forall x0 x1 c : R,
+    lerpHomog0 x0 x1 c = c*(x1 - x0)
+  ) ->
+
+  (* Arguments *)
+  forall (lerp lerpHomog0 : R -> R -> R -> R),
+  forall x0 x1 t : R,
+
+  (* Conjecture *)
+    lerp x0 x1 t = (1 - t) * x0 + t * x1.
+Proof.
+  intro H_lerpHomog0_def_2.
+  intro H_lerpHomog0_impl.
+
+  intro lerp.
+  intro lerpHomog0.
+  intros x0 x1 t.
+
+  assert (H: lerp x0 x1 t = lerpHomog0 x0 x1 t + x0).
+  - rewrite (H_lerpHomog0_def_2 lerp lerpHomog0).
+    ring.
+  - rewrite H.
+    rewrite (H_lerpHomog0_impl lerpHomog0).
+    ring.
+Qed.
+
+
+Theorem lerp_LAW_ZERO :
+  (* Assumptions *)
+  ( forall lerp : R -> R -> R -> R,
+    forall x0 x1 t : R,
+      lerp x0 x1 t = (1 - t) * x0 + t * x1
+  ) ->
+
+  (* Arguments *)
+  forall (lerp : R -> R -> R -> R),
+  forall x0 x1 : R,
+
+  (* Conjecture *)
+    lerp x0 x1 0 = x0.
+Proof.
+  intro H_lerp_impl.
+
+  intro lerp.
+  intros x0 x1.
+
+  specialize (H_lerp_impl lerp x0 x1 0).
+  rewrite H_lerp_impl.
+  ring.
+Qed.
+
+
+Theorem lerp_LAW_UNIT :
+  (* Assumptions *)
+  ( forall lerp : R -> R -> R -> R,
+    forall x0 x1 t : R,
+      lerp x0 x1 t = (1 - t) * x0 + t * x1
+  ) ->
+
+  (* Arguments *)
+  forall (lerp : R -> R -> R -> R),
+  forall x0 x1 : R,
+
+  (* Conjecture *)
+    lerp x0 x1 1 = x1.
+Proof.
+  intro H_lerp_impl.
+
+  intro lerp.
+  intros x0 x1.
+
+  specialize (H_lerp_impl lerp x0 x1 1).
+  rewrite H_lerp_impl.
+  ring.
+Qed.
+
+
+Theorem lerpHomog0_LAW_DEF_1 :
+  (* Assumptions *)
+  ( forall lerpHomog0 : R -> R -> R -> R,
+    forall x0 x1 c : R,
+      lerpHomog0 x0 x1 c = c*(x1 - x0)
+  ) ->
+  ( forall lerp : R -> R -> R -> R,
+    forall x0 x1 t : R,
+      lerp x0 x1 t = (1 - t) * x0 + t * x1
+  ) ->
+
+  (* Arguments *)
+  forall (lerp lerpHomog0 : R -> R -> R -> R),
+  forall x0 x1 t : R,
+
+  (* Conjecture *)
+    lerpHomog0 x0 x1 t = lerp x0 x1 t - lerp x0 x1 0.
+Proof.
+  intro H_lerpHomog0_impl.
+  intro H_lerp_impl.
+
+  intro lerp.
+  intro lerpHomog0.
+  intros x0 x1 t.
+
+  rewrite (H_lerpHomog0_impl lerpHomog0).
+  rewrite (H_lerp_impl lerp).
+  rewrite (H_lerp_impl lerp).
+  ring.
+Qed.
+
+
+Theorem lerpHomog0_LAW_LINEAR :
+  (* Assumptions *)
+  ( forall lerpHomog0 : R -> R -> R -> R,
+    forall x0 x1 c : R,
+      lerpHomog0 x0 x1 c = c*(x1 - x0)
+  ) ->
+  
+  (* Arguments *)
+  forall (lerpHomog0 : R -> R -> R -> R),
+  forall x0 x1 a t0 b t1 : R,
+
+  (* Conjecture *)
+    lerpHomog0 x0 x1 (a*t0 + b*t1) = a*lerpHomog0 x0 x1 t0 + b*lerpHomog0 x0 x1 t1.
+Proof.
+  intro H_lerpHomog0_impl.
+
+  intro lerpHomog0.
+  intros x0 x1 a t0 b t1.
+
+  rewrite (H_lerpHomog0_impl lerpHomog0).
+  rewrite (H_lerpHomog0_impl lerpHomog0).
+  rewrite (H_lerpHomog0_impl lerpHomog0).
+  ring.
 Qed.
