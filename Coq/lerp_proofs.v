@@ -45,7 +45,7 @@ Lemma lerpHomog0_LAW_ZERO_AXIOMS1 :
   ) ->
 
   (* Arguments *)
-  forall lerp lerpHomog0 : R -> R -> R -> R,
+  forall lerpHomog0 : R -> R -> R -> R,
   forall x0 x1 : R,
 
   (* Conjecture *)
@@ -54,8 +54,8 @@ Proof.
   intro H_lerp_zero.
   intro H_lerpHomog0_def_1.
 
-  intro lerp.
   intro lerpHomog0.
+  assert (lerp : R -> R -> R -> R) by assumption.
   intros x0 x1.
 
   rewrite (H_lerpHomog0_def_1 lerp).
@@ -76,7 +76,7 @@ Lemma lerpHomog0_LAW_ZERO_AXIOMS2 :
   ) ->
 
   (* Arguments *)
-  forall lerp lerpHomog0 : R -> R -> R -> R,
+  forall lerpHomog0 : R -> R -> R -> R,
   forall x0 x1 : R,
 
   (* Conjecture *)
@@ -85,8 +85,8 @@ Proof.
   intro H_lerpHomog0_def_2.
   intro H_lerp_zero.
 
-  intro lerp.
   intro lerpHomog0.
+  assert (lerp : R -> R -> R -> R) by assumption.
   intros x0 x1.
 
   rewrite (H_lerpHomog0_def_2 lerp).
@@ -117,12 +117,12 @@ Proof.
   intro H_lerpHomog0_def_2.
 
   intro lerpHomog0.
+  assert (lerp : R -> R -> R -> R) by assumption.
   intros x0 x1.
 
-  rewrite H_lerpHomog0_def_2
-    with (lerp := lerpHomog0).
+  rewrite (H_lerpHomog0_def_2 lerp).
     (* I think something has gone wrong with my names here... *)
-  rewrite (H_lerp_unit lerpHomog0).
+  rewrite (H_lerp_unit lerp).
   reflexivity.
 Qed.
 
@@ -251,7 +251,7 @@ Lemma lerp_LAW_IMPL_AXIOMS1:
   ) ->
 
   (* Arguments *)
-  forall lerp lerpHomog0 : R -> R -> R -> R,
+  forall lerp : R -> R -> R -> R,
   forall x0 x1 t : R,
 
   (* Conjecture *)
@@ -261,7 +261,7 @@ Proof.
   intro H_lerpHomog0_impl.
 
   intro lerp.
-  intro lerpHomog0.
+  assert (lerpHomog0 : R -> R -> R -> R) by assumption.
   intros x0 x1 t.
 
   assert (H: lerp x0 x1 t = lerpHomog0 x0 x1 t + x0).
@@ -277,15 +277,15 @@ Lemma lerp_LAW_IMPL_AXIOMS2:
   (* Assumptions *)
   ( forall lerp lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 t : R,
-    lerpHomog0 x0 x1 t = lerp x0 x1 t - x0
+      lerpHomog0 x0 x1 t = lerp x0 x1 t - x0
   ) ->
   ( forall lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 c : R,
-    lerpHomog0 x0 x1 c = c*(x1 - x0)
+      lerpHomog0 x0 x1 c = c*(x1 - x0)
   ) ->
 
   (* Arguments *)
-  forall lerp lerpHomog0 : R -> R -> R -> R,
+  forall lerp : R -> R -> R -> R,
   forall x0 x1 t : R,
 
   (* Conjecture *)
@@ -295,7 +295,7 @@ Proof.
   intro H_lerpHomog0_impl.
 
   intro lerp.
-  intro lerpHomog0.
+  assert (lerpHomog0 : R -> R -> R -> R) by assumption.
   intros x0 x1 t.
 
   assert (H: lerp x0 x1 t = lerpHomog0 x0 x1 t + x0).
