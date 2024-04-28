@@ -14,7 +14,7 @@ Theorem lerpHomog0_LAW_DEF_2 :
   ) ->
   
   (* Arguments *)
-  forall (lerp lerpHomog0 : R -> R -> R -> R),
+  forall lerp lerpHomog0 : R -> R -> R -> R,
   forall x0 x1 t : R,
   
   (* Conjecture *)
@@ -45,7 +45,7 @@ Theorem lerpHomog0_LAW_ZERO_AXIOMS1 :
   ) ->
 
   (* Arguments *)
-  forall (lerp lerpHomog0 : R -> R -> R -> R),
+  forall lerp lerpHomog0 : R -> R -> R -> R,
   forall x0 x1 : R,
 
   (* Conjecture *)
@@ -76,7 +76,7 @@ Theorem lerpHomog0_LAW_ZERO_AXIOMS2 :
   ) ->
 
   (* Arguments *)
-  forall (lerp lerpHomog0 : R -> R -> R -> R),
+  forall lerp lerpHomog0 : R -> R -> R -> R,
   forall x0 x1 : R,
 
   (* Conjecture *)
@@ -107,7 +107,7 @@ Theorem lerpHomog0_LAW_DEF_5 :
   ) ->
 
   (* Arguments *)
-  forall (lerp lerpHomog0 : R -> R -> R -> R),
+  forall lerp lerpHomog0 : R -> R -> R -> R,
   forall x0 x1 : R,
 
   (* Conjecture *)
@@ -138,7 +138,7 @@ Theorem lerpHomog0_LAW_DEF_6_AXIOMS1 :
   ) ->
 
   (* Arguments *)
-  forall (lerpHomog0 : R -> R -> R -> R),
+  forall lerpHomog0 : R -> R -> R -> R,
   forall x0 x1 c : R,
 
   (* Conjecture *)
@@ -168,7 +168,7 @@ Theorem lerpHomog0_LAW_DEF_6_AXIOMS2 :
   ) ->
 
   (* Arguments *)
-  forall (lerpHomog0 : R -> R -> R -> R),
+  forall lerpHomog0 : R -> R -> R -> R,
   forall x0 x1 c : R,
 
   (* Conjecture *)
@@ -195,7 +195,7 @@ Theorem lerpHomog0_LAW_impl :
   ) ->
 
   (* Arguments *)
-  forall (lerpHomog0 : R -> R -> R -> R),
+  forall lerpHomog0 : R -> R -> R -> R,
   forall x0 x1 c : R,
 
   (* Conjecture *)
@@ -221,7 +221,7 @@ Theorem lerpHomog0_LAW_AFFINE :
   ) ->
 
   (* Arguments *)
-  forall (lerpHomog0 : R -> R -> R -> R),
+  forall lerpHomog0 : R -> R -> R -> R,
   forall x y0 y1 a b : R,
 
   (* Conjecture *)
@@ -250,7 +250,7 @@ Theorem lerp_LAW_impl_AXIOMS1:
   ) ->
 
   (* Arguments *)
-  forall (lerp lerpHomog0 : R -> R -> R -> R),
+  forall lerp lerpHomog0 : R -> R -> R -> R,
   forall x0 x1 t : R,
 
   (* Conjecture *)
@@ -284,7 +284,7 @@ Theorem lerp_LAW_impl_AXIOMS2:
   ) ->
 
   (* Arguments *)
-  forall (lerp lerpHomog0 : R -> R -> R -> R),
+  forall lerp lerpHomog0 : R -> R -> R -> R,
   forall x0 x1 t : R,
 
   (* Conjecture *)
@@ -314,7 +314,7 @@ Theorem lerp_LAW_ZERO :
   ) ->
 
   (* Arguments *)
-  forall (lerp : R -> R -> R -> R),
+  forall lerp : R -> R -> R -> R,
   forall x0 x1 : R,
 
   (* Conjecture *)
@@ -339,7 +339,7 @@ Theorem lerp_LAW_UNIT :
   ) ->
 
   (* Arguments *)
-  forall (lerp : R -> R -> R -> R),
+  forall lerp : R -> R -> R -> R,
   forall x0 x1 : R,
 
   (* Conjecture *)
@@ -368,7 +368,7 @@ Theorem lerpHomog0_LAW_DEF_1 :
   ) ->
 
   (* Arguments *)
-  forall (lerp lerpHomog0 : R -> R -> R -> R),
+  forall lerp lerpHomog0 : R -> R -> R -> R,
   forall x0 x1 t : R,
 
   (* Conjecture *)
@@ -396,7 +396,7 @@ Theorem lerpHomog0_LAW_LINEAR :
   ) ->
   
   (* Arguments *)
-  forall (lerpHomog0 : R -> R -> R -> R),
+  forall lerpHomog0 : R -> R -> R -> R,
   forall x0 x1 a t0 b t1 : R,
 
   (* Conjecture *)
