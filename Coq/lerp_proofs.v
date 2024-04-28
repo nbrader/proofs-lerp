@@ -2,7 +2,7 @@ Require Import Coq.Reals.Reals.
 
 Open Scope R_scope.
 
-Theorem lerpHomog0_LAW_DEF_2 :
+Lemma lerpHomog0_LAW_DEF_2 :
   (* Assumptions *)
   ( forall lerp : R -> R -> R -> R,
     forall x0 x1 : R,
@@ -33,7 +33,7 @@ Proof.
 Qed.
 
 
-Theorem lerpHomog0_LAW_ZERO_AXIOMS1 :
+Lemma lerpHomog0_LAW_ZERO_AXIOMS1 :
   (* Assumptions *)
   ( forall lerp : R -> R -> R -> R,
     forall x0 x1 : R,
@@ -64,7 +64,7 @@ Proof.
 Qed.
 
 
-Theorem lerpHomog0_LAW_ZERO_AXIOMS2 :
+Lemma lerpHomog0_LAW_ZERO_AXIOMS2 :
   (* Assumptions *)
   ( forall lerp lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 t : R,
@@ -95,7 +95,7 @@ Proof.
 Qed.
 
 
-Theorem lerpHomog0_LAW_DEF_5 :
+Lemma lerpHomog0_LAW_DEF_5 :
   (* Assumptions *)
   ( forall lerp : R -> R -> R -> R,
     forall x0 x1 : R,
@@ -126,7 +126,7 @@ Proof.
 Qed.
 
 
-Theorem lerpHomog0_LAW_DEF_6_AXIOMS1 :
+Lemma lerpHomog0_LAW_DEF_6_AXIOMS1 :
   (* Assumptions *)
   ( forall lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 a t0 b t1 : R,
@@ -160,7 +160,7 @@ Proof.
 Qed.
 
 
-Theorem lerpHomog0_LAW_DEF_6_AXIOMS2 :
+Lemma lerpHomog0_LAW_DEF_6_AXIOMS2 :
   (* Assumptions *)
   ( forall lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 c : R,
@@ -185,7 +185,7 @@ Proof.
 Qed.
 
 
-Theorem lerpHomog0_LAW_impl :
+Lemma lerpHomog0_LAW_impl :
   (* Assumptions *)
   ( forall lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 c : R, lerpHomog0 x0 x1 c = c * lerpHomog0 x0 x1 1
@@ -213,7 +213,7 @@ Proof.
 Qed.
 
 
-Theorem lerpHomog0_LAW_AFFINE :
+Lemma lerpHomog0_LAW_AFFINE :
   (* Assumptions *)
   ( forall lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 c : R,
@@ -238,7 +238,7 @@ Proof.
 Qed.
 
 
-Theorem lerp_LAW_impl_AXIOMS1:
+Lemma lerp_LAW_impl_AXIOMS1:
   (* Assumptions *)
   ( forall lerp lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 t : R,
@@ -272,7 +272,7 @@ Proof.
 Qed.
 
 
-Theorem lerp_LAW_impl_AXIOMS2:
+Lemma lerp_LAW_impl_AXIOMS2:
   (* Assumptions *)
   ( forall lerp lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 t : R,
@@ -306,7 +306,7 @@ Proof.
 Qed.
 
 
-Theorem lerp_LAW_ZERO :
+Lemma lerp_LAW_ZERO :
   (* Assumptions *)
   ( forall lerp : R -> R -> R -> R,
     forall x0 x1 t : R,
@@ -331,7 +331,7 @@ Proof.
 Qed.
 
 
-Theorem lerp_LAW_UNIT :
+Lemma lerp_LAW_UNIT :
   (* Assumptions *)
   ( forall lerp : R -> R -> R -> R,
     forall x0 x1 t : R,
@@ -356,7 +356,7 @@ Proof.
 Qed.
 
 
-Theorem lerpHomog0_LAW_DEF_1 :
+Lemma lerpHomog0_LAW_DEF_1 :
   (* Assumptions *)
   ( forall lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 c : R,
@@ -388,7 +388,7 @@ Proof.
 Qed.
 
 
-Theorem lerpHomog0_LAW_LINEAR :
+Lemma lerpHomog0_LAW_LINEAR :
   (* Assumptions *)
   ( forall lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 c : R,

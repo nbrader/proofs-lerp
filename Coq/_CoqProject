@@ -1,2 +1,2 @@
--R . HomFunctor
+-R . LerpProofs
 lerp_proofs.v
