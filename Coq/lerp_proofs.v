@@ -21,13 +21,13 @@ Theorem lerpHomog0_LAW_DEF_2 :
     lerpHomog0 x0 x1 t = lerp x0 x1 t - x0.
 Proof.
   intro H_lerp_zero.
-  intro H_lerpHomog0_def.
+  intro H_lerpHomog0_def_1.
 
   intro lerp.
   intro lerpHomog0.
   intros x0 x1 t.
 
-  rewrite (H_lerpHomog0_def lerp).
+  rewrite (H_lerpHomog0_def_1 lerp).
   rewrite (H_lerp_zero lerp).
   reflexivity.
 Qed.
@@ -52,13 +52,13 @@ Theorem lerpHomog0_LAW_ZERO_AXIOMS1 :
     lerpHomog0 x0 x1 0 = 0.
 Proof.
   intro H_lerp_zero.
-  intro H_lerpHomog0_def.
+  intro H_lerpHomog0_def_1.
 
   intro lerp.
   intro lerpHomog0.
   intros x0 x1.
 
-  rewrite (H_lerpHomog0_def lerp).
+  rewrite (H_lerpHomog0_def_1 lerp).
   rewrite (H_lerp_zero lerp).
   ring.
 Qed.
@@ -256,7 +256,7 @@ Theorem lerp_LAW_impl_AXIOMS1:
   (* Conjecture *)
     lerp x0 x1 t = (1 - t) * x0 + t * x1.
 Proof.
-  intro H_lerpHomog0_def.
+  intro H_lerpHomog0_def_1.
   intro H_lerpHomog0_impl.
 
   intro lerp.
@@ -264,7 +264,7 @@ Proof.
   intros x0 x1 t.
 
   assert (H: lerp x0 x1 t = lerpHomog0 x0 x1 t + x0).
-  - rewrite (H_lerpHomog0_def lerp lerpHomog0).
+  - rewrite (H_lerpHomog0_def_1 lerp lerpHomog0).
     ring.
   - rewrite H.
     rewrite (H_lerpHomog0_impl lerpHomog0).
