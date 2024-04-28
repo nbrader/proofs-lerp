@@ -107,7 +107,7 @@ Lemma lerpHomog0_LAW_DEF_5 :
   ) ->
 
   (* Arguments *)
-  forall lerp lerpHomog0 : R -> R -> R -> R,
+  forall lerpHomog0 : R -> R -> R -> R,
   forall x0 x1 : R,
 
   (* Conjecture *)
@@ -116,12 +116,13 @@ Proof.
   intro H_lerp_unit.
   intro H_lerpHomog0_def_2.
 
-  intro lerp.
   intro lerpHomog0.
   intros x0 x1.
 
-  rewrite (H_lerpHomog0_def_2 lerp).
-  rewrite (H_lerp_unit lerp).
+  rewrite H_lerpHomog0_def_2
+    with (lerp := lerpHomog0).
+    (* I think something has gone wrong with my names here... *)
+  rewrite (H_lerp_unit lerpHomog0).
   reflexivity.
 Qed.
 
@@ -185,7 +186,7 @@ Proof.
 Qed.
 
 
-Lemma lerpHomog0_LAW_impl :
+Lemma lerpHomog0_LAW_IMPL :
   (* Assumptions *)
   ( forall lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 c : R, lerpHomog0 x0 x1 c = c * lerpHomog0 x0 x1 1
@@ -238,7 +239,7 @@ Proof.
 Qed.
 
 
-Lemma lerp_LAW_impl_AXIOMS1:
+Lemma lerp_LAW_IMPL_AXIOMS1:
   (* Assumptions *)
   ( forall lerp lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 t : R,
@@ -272,7 +273,7 @@ Proof.
 Qed.
 
 
-Lemma lerp_LAW_impl_AXIOMS2:
+Lemma lerp_LAW_IMPL_AXIOMS2:
   (* Assumptions *)
   ( forall lerp lerpHomog0 : R -> R -> R -> R,
     forall x0 x1 t : R,
