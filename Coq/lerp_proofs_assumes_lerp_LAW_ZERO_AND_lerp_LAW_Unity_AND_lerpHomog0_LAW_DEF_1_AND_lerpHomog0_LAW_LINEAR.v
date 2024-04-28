@@ -52,7 +52,6 @@ Proof.
   rewrite lerpHomog0_LAW_DEF_6.
   rewrite lerpHomog0_LAW_DEF_5.
   reflexivity.
-  Show Proof.
 Qed.
 
 Theorem lerpHomog0_LAW_AFFINE : forall x y0 y1 a b : R, (lerpHomog0 (a*y0+b) (a*y1+b)) x = a*((lerpHomog0 y0 y1) x).
